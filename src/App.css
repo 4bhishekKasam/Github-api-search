@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato';
 }
 .container-fluid {
   background-color: #f1e8e8;
@@ -10,27 +10,30 @@ body {
   margin: 0;
 }
 a {
-  text-decoration: none;
+ 
   color: gray;
 }
 .user-list {
   padding-top: 80px;
 }
 .count {
-  width: 40rem;
-  margin-bottom: .6rem;
+  width: 46rem;
+  margin-bottom: .2rem;
   position: relative;
 }
 img {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
 }
 .card{
-  width: 40rem;
+  width: 46rem;
   border: 0px solid black;
   margin-bottom: .6rem;
   position: relative;
 }
 .row{
   justify-content: center;
+}
+table{
+  font-size: 14px;
 }

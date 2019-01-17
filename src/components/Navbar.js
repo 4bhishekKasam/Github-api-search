@@ -17,50 +17,33 @@ export default class Navbar extends Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.id]: e.target.value }, () =>
-      console.log(this.state.userName)
+    this.setState(
+      { [e.target.id]: e.target.value }
+      //   () =>   console.log(this.state.userName)
     );
   }
 
   render() {
+    const { onSorting } = this.props;
+
     return (
       <nav className="navbar fixed-top navbar-expand-md navbar-light bg-primary">
         <div className="container" style={{ textAlign: "center" }}>
-          <ul className="navbar-nav bg-light mr-auto">
-            <li className="nav-item dropdown">
-              <a
-                href="/"
-                className="nav-link dropdown-toggle auto"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Sort
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="/" className="dropdown-item">
-                  Sort by Name (ascending){" "}
-                </a>
-                <a href="/" className="dropdown-item">
-                  Sort by Name (descending){" "}
-                </a>
-                <a href="/" className="dropdown-item">
-                  Sort by Rank (ascending){" "}
-                </a>
-                <a href="/" className="dropdown-item">
-                  Sort by Rank (ascending){" "}
-                </a>
-              </div>
-            </li>
-          </ul>
 
-          <form
-            action=""
-            className="form-inline my-1 my-lg-0"
-            onSubmit={this.searchUser}
-          >
+          <form className="navbar-form pull-left">
+            <select
+              className="form-control"
+              style={{ width: "200px" }}
+              onChange={onSorting}
+            >
+              <option value="ascName">Sort by Name (A - Z) </option>
+              <option value="descName">Sort by Name (Z - A) </option>
+              <option value="ascRank">Sort by Rank (ascending) </option>
+              <option value="descRank">Sort by Rank (descending) </option>
+            </select>
+          </form>
+
+          <form className="form-inline my-1 my-lg-0" onSubmit={this.searchUser}>
             <div className="input-group add-on">
               <input
                 type="search"
