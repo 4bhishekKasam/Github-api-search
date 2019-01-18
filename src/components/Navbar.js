@@ -28,18 +28,20 @@ export default class Navbar extends Component {
 
     return (
       <nav className="navbar fixed-top navbar-expand-md navbar-light bg-primary">
-        <div className="container" style={{ textAlign: "center" }}>
-
-          <form className="navbar-form pull-left">
+        <div
+          className="container"
+          style={{ textAlign: "center"}}
+        >
+          <form className="navbar-form pull-center">
             <select
               className="form-control"
-              style={{ width: "200px" }}
+              style={{ width: "210px" }}
               onChange={onSorting}
             >
               <option value="ascName">Sort by Name (A - Z) </option>
               <option value="descName">Sort by Name (Z - A) </option>
-              <option value="ascRank">Sort by Rank (ascending) </option>
-              <option value="descRank">Sort by Rank (descending) </option>
+              <option value="ascRank">Sort by Rank ( Ascending ) </option>
+              <option value="descRank">Sort by Rank ( Descending ) </option>
             </select>
           </form>
 

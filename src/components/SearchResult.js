@@ -25,18 +25,24 @@ export default class SearchResult extends Component {
     fetch("https://api.github.com/users/" + userName + "/repos")
       .then(res => res.json())
       .then(userRepos => {
-        this.setState({ repoList: userRepos }, 
-     //     () =>  console.log(this.state.repoList)
+        this.setState(
+          { repoList: userRepos }
+          //     () =>  console.log(this.state.repoList)
         );
       });
   }
 
   render() {
-    const { userList, userCount } = this.props;
-    console.log(userList);
+    const { userList, userCount, pageSize, currentPage } = this.props;
+    //    console.log(userList);
     const { repoList, isOpen, currentUser, buttonClick } = this.state;
 
-    var List = _.map(userList, (row, key) => {
+    const pageStartIndex = pageSize * (currentPage - 1);
+    const pageEndIndex = Math.min(pageStartIndex + pageSize, userList.length);
+
+    var pageList = userList.slice(pageStartIndex, pageEndIndex);
+
+    var List = _.map(pageList, (row, key) => {
       return (
         <div className="d-flex justify-content-center" key={row.id}>
           <div className="card shadow-sm rounded">
