@@ -22,7 +22,7 @@ export default class PaginationComponent extends Component {
   }
 
   render() {
-    console.log(this.state.pages);
+  //  console.log("no. of pages: " + this.state.pages);
     this.populatePageMap();
 
     var pagesNumbar = pagesMap.map(num => (
