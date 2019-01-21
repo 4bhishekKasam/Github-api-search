@@ -65,7 +65,9 @@ export default class SearchResult extends Component {
                     className="btn btn-outline-primary btn-md float-right"
                     onClick={() => this.toggleButton(row.login)}
                   >
-                    {buttonClick ? "Collapse" : "Details"}
+                    {buttonClick && currentUser === row.login
+                      ? "Collapse"
+                      : "Details"}
                   </button>
                 </div>
               </div>
@@ -114,20 +116,30 @@ export default class SearchResult extends Component {
     return (
       <div className="user-list">
         {userList ? (
-          <div className="d-flex justify-content-center">
-            <div className="count">
-              <h6 className="display-6">Total Results : {userCount}</h6>
-            </div>
-          </div>
+          <TotalCount userCount={userCount} />
         ) : (
-          <div className="d-flex justify-content-center">
-            <div className="count">
-              <h6 className="display-6">Total Results : {userCount}</h6>
-            </div>
-          </div>
+          <TotalCount userCount={userCount} />
         )}
         {userList.length > 0 ? List : emptyList}
       </div>
     );
   }
 }
+
+export class TotalCount extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { userCount } = this.props;
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="count">
+          <h6 className="display-6">Total Results : {userCount}</h6>
+        </div>
+      </div>
+    );
+  }
+}
+
+
