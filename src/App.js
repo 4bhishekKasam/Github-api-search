@@ -31,7 +31,7 @@ class App extends Component {
           );
         });
     } else {
-      this.setState({ userList: null });
+      this.setState({ userList: [] });
     }
   }
 
